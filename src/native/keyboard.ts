@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 export class KeyboardMock {
     public static instance(): any {
@@ -11,8 +11,8 @@ export class KeyboardMock {
             'onKeyboardHide'
         ]);
 
-        instance.onKeyboardShow.and.returnValue(Observable.empty());
-        instance.onKeyboardHide.and.returnValue(Observable.empty());
+        instance.onKeyboardShow.and.returnValue(of({}));
+        instance.onKeyboardHide.and.returnValue(of({}));
 
         return instance;
     }
