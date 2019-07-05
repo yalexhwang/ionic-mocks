@@ -1,8 +1,9 @@
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { createSpyObj } from '../utilities/create-spy';
 
 export class ThreeDeeTouchMock {
     public static instance(): any {
-        let instance = jasmine.createSpyObj('ThreeDeeTouch', [
+        let instance = createSpyObj('ThreeDeeTouch', [
             'isAvailable',
             'watchForTouches',
             'configureQuickActions',
@@ -11,8 +12,8 @@ export class ThreeDeeTouchMock {
             'disableLinkPreview'
         ]);
         instance.isAvailable.and.returnValue(Promise.resolve(true));
-        instance.watchForTouches.and.returnValue(of({}));
-        instance.onHomeIconPressed.and.returnValue(of({}));
+        instance.watchForTouches.and.returnValue(Observable.of({}));
+        instance.onHomeIconPressed.and.returnValue(Observable.empty());
 
         return instance;
     }

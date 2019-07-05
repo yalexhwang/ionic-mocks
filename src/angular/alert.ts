@@ -1,18 +1,22 @@
-import { BaseMock } from '../base.mock';
-import deprecated from 'deprecated-decorator';
+import { createSpyObj } from '../utilities/create-spy';
 
-const METHODS = ['present', 'dismiss', 'onDidDismiss'];
-
-export class AlertMock extends BaseMock {
-
-    constructor() {
-        super('Alert', METHODS);
-
-        this.spyObj.present.and.returnValue(Promise.resolve());
-    }
-
-    @deprecated('new AlertMock()')
+export class AlertMock {
     public static instance(): any {
-        return new AlertMock();
+    	  let _dismissCallback: Function;
+        let instance = createSpyObj('Alert', ['present', 'dismiss', 'onDidDismiss']);
+        instance.present.and.returnValue(Promise.resolve());
+
+        instance.dismiss.and.callFake(x => {
+            _dismissCallback(x);
+            return Promise.resolve();
+        });
+
+        instance.onDidDismiss.and.callFake((callback: Function) => {
+            if (callback) {
+                _dismissCallback = callback;
+            }
+        });
+
+        return instance;
     }
 }

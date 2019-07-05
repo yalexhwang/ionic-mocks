@@ -1,6 +1,4 @@
 import { ActionSheetMock } from './action-sheet';
-import { BaseMock } from '../base.mock';
-export declare class ActionSheetControllerMock extends BaseMock {
-    constructor(actionSheet?: ActionSheetMock);
+export declare class ActionSheetControllerMock {
     static instance(actionSheet?: ActionSheetMock): any;
 }

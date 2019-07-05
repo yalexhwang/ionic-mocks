@@ -1,15 +1,10 @@
-import { BaseMock } from '../base.mock';
-import deprecated from 'deprecated-decorator';
+import { createSpyObj } from '../utilities/create-spy';
 
-const METHODS = ['present', 'dismiss', 'setContent', 'setSpinner'];
-export class LoadingMock extends BaseMock {
-    constructor() {
-        super('Loading', METHODS);
-        this.spyObj.present.and.returnValue(Promise.resolve());
-    }
-
-    @deprecated('new LoadingMock()')
+export class LoadingMock {
     public static instance(): any {
-        return new LoadingMock();
+        let instance = createSpyObj('Loading', ['present', 'dismiss', 'setContent', 'setSpinner']);
+        instance.present.and.returnValue(Promise.resolve());
+
+        return instance;
     }
 }

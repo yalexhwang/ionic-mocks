@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var create_spy_1 = require("../utilities/create-spy");
 var StorageMock = /** @class */ (function () {
     function StorageMock() {
     }
     StorageMock.instance = function (key, value) {
         if (key === void 0) { key = 'key1'; }
         if (value === void 0) { value = 'value1'; }
-        var instance = jasmine.createSpyObj('Storage', [
+        var instance = create_spy_1.createSpyObj('Storage', [
             'driver',
             'ready',
             'get',

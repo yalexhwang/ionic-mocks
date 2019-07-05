@@ -1,5 +1,3 @@
-import { BaseMock } from '../base.mock';
-export declare class LoadingMock extends BaseMock {
-    constructor();
+export declare class LoadingMock {
     static instance(): any;
 }

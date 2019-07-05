@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var of_1 = require("rxjs/observable/of");
+var Observable_1 = require("rxjs/Observable");
+var create_spy_1 = require("../utilities/create-spy");
 var NetworkMock = /** @class */ (function () {
     function NetworkMock() {
     }
     NetworkMock.instance = function (networkType) {
-        var instance = jasmine.createSpyObj('Network', [
+        var instance = create_spy_1.createSpyObj('Network', [
             'type',
             'downlinkMax',
             'onchange',
@@ -14,9 +15,9 @@ var NetworkMock = /** @class */ (function () {
         ]);
         instance.type.and.returnValue(networkType || 'wifi');
         instance.downlinkMax.and.returnValue('42');
-        instance.onChange.and.returnValue(of_1.of({}));
-        instance.onDisconnect.and.returnValue(of_1.of({}));
-        instance.onConnect.and.returnValue(of_1.of({}));
+        instance.onChange.and.returnValue(Observable_1.Observable.empty());
+        instance.onDisconnect.and.returnValue(Observable_1.Observable.empty());
+        instance.onConnect.and.returnValue(Observable_1.Observable.empty());
         return instance;
     };
     return NetworkMock;

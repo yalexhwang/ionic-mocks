@@ -1,7 +1,8 @@
-import deprecated from 'deprecated-decorator';
-import { BaseMock } from '../base.mock';
+import { createSpyObj } from '../utilities/create-spy';
 
-const METHODS = [
+export class ConfigMock {
+    public static instance(): any {
+        let instance = createSpyObj('Config', [
             'get',
             'getBoolean',
             'getNumber',
@@ -11,19 +12,12 @@ const METHODS = [
             'getModeConfig',
             'setTransition',
             'getTransition'
-];
-export class ConfigMock extends BaseMock​​ {
+        ]);
 
-    constructor() {
-        super('Config', METHODS);
-        this.spyObj.get.and.returnValue('');
-        this.spyObj.getBoolean.and.returnValue(true);
-        this.spyObj.getNumber.and.returnValue(0);
+        instance.get.and.returnValue('');
+        instance.getBoolean.and.returnValue(true);
+        instance.getNumber.and.returnValue(0);
 
-    }
-
-    @deprecated('new ConfigMock()')
-    public static instance(): any {
-        return new ConfigMock();
+        return instance;
     }
 }

@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var tab_1 = require("./tab");
+var create_spy_1 = require("../utilities/create-spy");
 var TabsMock = /** @class */ (function () {
     function TabsMock() {
     }
     TabsMock.instance = function (defaultTab, selectedTab, previousTab) {
-        var instance = jasmine.createSpyObj('Tabs', [
+        var instance = create_spy_1.createSpyObj('Tabs', [
             'select',
             'getSelected',
             'ngOnDestroy',

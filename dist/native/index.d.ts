@@ -6,5 +6,4 @@ import { NetworkMock } from './network';
 import { GoogleAnalyticsMock } from './google-analytics';
 import { NFCMock } from './nfc';
 import { VibrationMock } from './vibration';
-import { FileMock } from './file';
-export { KeyboardMock, SplashScreenMock, StatusBarMock, ThreeDeeTouchMock, NetworkMock, GoogleAnalyticsMock, NFCMock, VibrationMock, FileMock };
+export { KeyboardMock, SplashScreenMock, StatusBarMock, ThreeDeeTouchMock, NetworkMock, GoogleAnalyticsMock, NFCMock, VibrationMock };

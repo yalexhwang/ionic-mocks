@@ -1,18 +1,12 @@
-import deprecated from 'deprecated-decorator';
+import { createSpyObj } from '../utilities/create-spy';
 import { AlertMock } from './alert';
-import { BaseMock } from '../base.mock';
 
-const METHODS = ['create'];
-
-export class AlertControllerMock extends BaseMock {
-
-    constructor(alertMock?: AlertMock) {
-        super('AlertController', METHODS);
-        this.spyObj.create.and.returnValue(alertMock || new AlertMock());
-    }
-
-    @deprecated('new AlertControllerMock()')
+export class AlertControllerMock {
     public static instance(alertMock?: AlertMock): any {
-        return new AlertControllerMock(alertMock);
+
+        let instance = createSpyObj('AlertController', ['create']);
+        instance.create.and.returnValue(alertMock || AlertMock.instance());
+
+        return instance;
     }
 }

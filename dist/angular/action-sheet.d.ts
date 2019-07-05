@@ -1,5 +1,3 @@
-import { BaseMock } from '../base.mock';
-export declare class ActionSheetMock extends BaseMock {
-    constructor(actionSheet?: ActionSheetMock);
+export declare class ActionSheetMock {
     static instance(): any;
 }

@@ -5,104 +5,104 @@ var nav_controller_1 = require("./nav-controller");
 describe('AppMock', function () {
     var classUnderTest;
     beforeEach(function () {
-        classUnderTest = new app_1.AppMock();
+        classUnderTest = app_1.AppMock.instance();
     });
     it('should initialize', function () {
         expect(classUnderTest).toBeDefined();
     });
     describe('getActiveNav', function () {
         it('should exist', function () {
-            expect(classUnderTest.getActiveNav).toBeDefined();
+            expect(classUnderTest.getActiveNav);
         });
         it('should return a NavController', function () {
             var result = classUnderTest.getActiveNav();
             expect(result).toBeDefined();
         });
         it('should return passed nav', function () {
-            var navCtrl = new nav_controller_1.NavControllerMock();
-            classUnderTest = new app_1.AppMock(navCtrl);
+            var navCtrl = nav_controller_1.NavControllerMock.instance();
+            var classUnderTest = app_1.AppMock.instance(navCtrl);
             var result = classUnderTest.getActiveNav();
             expect(result).toBe(navCtrl);
         });
     });
     describe('getActiveNavs', function () {
         it('should exist', function () {
-            expect(classUnderTest.getActiveNavs).toBeDefined();
+            expect(classUnderTest.getActiveNavs);
         });
         it('should return a NavController array', function () {
             var result = classUnderTest.getActiveNavs();
             expect(result).toBeDefined();
         });
         it('should return passed nav', function () {
-            var navCtrl = new nav_controller_1.NavControllerMock();
-            classUnderTest = new app_1.AppMock(navCtrl);
+            var navCtrl = nav_controller_1.NavControllerMock.instance();
+            var classUnderTest = app_1.AppMock.instance(navCtrl);
             var result = classUnderTest.getActiveNav();
             expect(result).toContain(navCtrl);
         });
     });
     describe('getNavByIdOrName', function () {
         it('should exist', function () {
-            expect(classUnderTest.getNavByIdOrName).toBeDefined();
+            expect(classUnderTest.getNavByIdOrName);
         });
         it('should return a nav', function () {
             var result = classUnderTest.getNavByIdOrName(1);
             expect(result).toBeDefined();
         });
         it('should return passed nav', function () {
-            var navCtrl = new nav_controller_1.NavControllerMock();
-            classUnderTest = new app_1.AppMock(navCtrl);
+            var navCtrl = nav_controller_1.NavControllerMock.instance();
+            var classUnderTest = app_1.AppMock.instance(navCtrl);
             var result = classUnderTest.getNavByIdOrName(1);
             expect(result).toBe(navCtrl);
         });
     });
     describe('getRootNav', function () {
         it('should exist', function () {
-            expect(classUnderTest.getRootNav).toBeDefined();
+            expect(classUnderTest.getRootNav);
         });
         it('should return a nav', function () {
             var result = classUnderTest.getRootNav();
             expect(result).toBeDefined();
         });
         it('should return passed nav', function () {
-            var navCtrl = new nav_controller_1.NavControllerMock();
-            classUnderTest = new app_1.AppMock(navCtrl);
+            var navCtrl = nav_controller_1.NavControllerMock.instance();
+            var classUnderTest = app_1.AppMock.instance(navCtrl);
             var result = classUnderTest.getRootNav();
             expect(result).toBe(navCtrl);
         });
     });
     describe('getRootNavs', function () {
         it('should exist', function () {
-            expect(classUnderTest.getRootNavs).toBeDefined();
+            expect(classUnderTest.getRootNavs);
         });
         it('should return a NavController array', function () {
             var result = classUnderTest.getRootNavs();
             expect(result).toBeDefined();
         });
         it('should return passed nav', function () {
-            var navCtrl = new nav_controller_1.NavControllerMock();
-            classUnderTest = new app_1.AppMock(navCtrl);
+            var navCtrl = nav_controller_1.NavControllerMock.instance();
+            var classUnderTest = app_1.AppMock.instance(navCtrl);
             var result = classUnderTest.getRootNavs();
             expect(result).toContain(navCtrl);
         });
     });
     describe('getRootNavById', function () {
         it('should exist', function () {
-            expect(classUnderTest.getRootNavById).toBeDefined();
+            expect(classUnderTest.getRootNavById);
         });
         it('should return a nav', function () {
             var result = classUnderTest.getRootNavById(1);
             expect(result).toBeDefined();
         });
         it('should return passed nav', function () {
-            var navCtrl = new nav_controller_1.NavControllerMock();
-            classUnderTest = new app_1.AppMock(navCtrl);
+            var navCtrl = nav_controller_1.NavControllerMock.instance();
+            var classUnderTest = app_1.AppMock.instance(navCtrl);
             var result = classUnderTest.getRootNavById(1);
             expect(result).toBe(navCtrl);
         });
     });
     describe('isScrolling', function () {
         it('should exist', function () {
-            expect(classUnderTest.isScrolling).toBeDefined();
+            expect(classUnderTest.isScrolling);
         });
         it('should return false', function () {
             expect(classUnderTest.isScrolling()).toEqual(false);
@@ -110,15 +110,16 @@ describe('AppMock', function () {
     });
     describe('setTitle', function () {
         it('should exist', function () {
-            expect(classUnderTest.setTitle).toBeDefined();
+            expect(classUnderTest.setTitle);
         });
     });
     describe('viewDidEnter', function () {
         it('should exist', function () {
-            expect(classUnderTest.viewDidEnter).toBeDefined();
+            expect(classUnderTest.viewDidEnter);
         });
         it('should return empty Observable', function (done) {
-            classUnderTest.viewDidEnter().subscribe(function (result) {
+            classUnderTest.viewDidEnter()
+                .subscribe(function (result) {
                 expect(result).toBeUndefined();
                 done();
             });
@@ -126,10 +127,11 @@ describe('AppMock', function () {
     });
     describe('viewDidLeave', function () {
         it('should exist', function () {
-            expect(classUnderTest.viewDidLeave).toBeDefined();
+            expect(classUnderTest.viewDidLeave);
         });
         it('should return empty Observable', function (done) {
-            classUnderTest.viewDidLeave().subscribe(function (result) {
+            classUnderTest.viewDidLeave()
+                .subscribe(function (result) {
                 expect(result).toBeUndefined();
                 done();
             });
@@ -137,10 +139,11 @@ describe('AppMock', function () {
     });
     describe('viewWillEnter', function () {
         it('should exist', function () {
-            expect(classUnderTest.viewWillEnter).toBeDefined();
+            expect(classUnderTest.viewWillEnter);
         });
         it('should return empty Observable', function (done) {
-            classUnderTest.viewWillEnter().subscribe(function (result) {
+            classUnderTest.viewWillEnter()
+                .subscribe(function (result) {
                 expect(result).toBeUndefined();
                 done();
             });
@@ -148,10 +151,11 @@ describe('AppMock', function () {
     });
     describe('viewWillLeave', function () {
         it('should exist', function () {
-            expect(classUnderTest.viewWillLeave).toBeDefined();
+            expect(classUnderTest.viewWillLeave);
         });
         it('should return empty Observable', function (done) {
-            classUnderTest.viewDidLeave().subscribe(function (result) {
+            classUnderTest.viewDidLeave()
+                .subscribe(function (result) {
                 expect(result).toBeUndefined();
                 done();
             });
@@ -159,10 +163,11 @@ describe('AppMock', function () {
     });
     describe('viewWillUnLoad', function () {
         it('should exist', function () {
-            expect(classUnderTest.viewWillUnload).toBeDefined();
+            expect(classUnderTest.viewWillUnload);
         });
         it('should return empty Observable', function (done) {
-            classUnderTest.viewWillUnload().subscribe(function (result) {
+            classUnderTest.viewWillUnload()
+                .subscribe(function (result) {
                 expect(result).toBeUndefined();
                 done();
             });

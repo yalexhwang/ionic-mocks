@@ -16,6 +16,4 @@ var nfc_1 = require("./nfc");
 exports.NFCMock = nfc_1.NFCMock;
 var vibration_1 = require("./vibration");
 exports.VibrationMock = vibration_1.VibrationMock;
-var file_1 = require("./file");
-exports.FileMock = file_1.FileMock;
 //# sourceMappingURL=index.js.map

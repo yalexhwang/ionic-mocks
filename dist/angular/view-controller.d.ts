@@ -1,5 +1,5 @@
-import { BaseMock } from '../base.mock';
-export declare class ViewControllerMock extends BaseMock {
-    constructor();
+export declare class ViewControllerMock {
+    private static staticInstance;
+    private static navController();
     static instance(): any;
 }

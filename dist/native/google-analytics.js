@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var create_spy_1 = require("../utilities/create-spy");
 var GoogleAnalyticsMock = /** @class */ (function () {
     function GoogleAnalyticsMock() {
     }
     GoogleAnalyticsMock.instance = function () {
-        var instance = jasmine.createSpyObj('GoogleAnalytics', [
+        var instance = create_spy_1.createSpyObj('GoogleAnalytics', [
             'startTrackerWithId',
             'setAllowIDFACollection',
             'setUserId',

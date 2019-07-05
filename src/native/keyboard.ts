@@ -1,8 +1,9 @@
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { createSpyObj } from '../utilities/create-spy';
 
 export class KeyboardMock {
     public static instance(): any {
-        let instance = jasmine.createSpyObj('Keyboard', [
+        let instance = createSpyObj('Keyboard', [
             'hideKeyboardAccessoryBar',
             'show',
             'close',
@@ -11,8 +12,8 @@ export class KeyboardMock {
             'onKeyboardHide'
         ]);
 
-        instance.onKeyboardShow.and.returnValue(of({}));
-        instance.onKeyboardHide.and.returnValue(of({}));
+        instance.onKeyboardShow.and.returnValue(Observable.empty());
+        instance.onKeyboardHide.and.returnValue(Observable.empty());
 
         return instance;
     }

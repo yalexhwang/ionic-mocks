@@ -1,23 +1,11 @@
-import { BaseMock } from '../base.mock';
-import deprecated from 'deprecated-decorator';
+import { createSpyObj } from '../utilities/create-spy';
 
+export class ActionSheetMock {
+    public static instance(): any {
+        let instance = createSpyObj('ActionSheet', ['present', 'dismiss']);
+        instance.present.and.returnValue(Promise.resolve());
+        instance.dismiss.and.returnValue(Promise.resolve());
 
-const METHODS: string[] = [
-    'present',
-    'dismiss'
-];
-
-export class ActionSheetMock extends BaseMock {
-
-    constructor(actionSheet?: ActionSheetMock) {
-        super('ActionSheet', METHODS);
-
-        this.spyObj.present.and.returnValue(Promise.resolve());
-        this.spyObj.dismiss.and.returnValue(Promise.resolve());
+        return instance;
     }
-
-        @deprecated('new ActionSheet()')
-        public static instance(): any {
-            return new ActionSheetMock();
-        }
 }

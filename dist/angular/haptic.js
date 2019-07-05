@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var create_spy_1 = require("../utilities/create-spy");
 var HapticMock = /** @class */ (function () {
     function HapticMock() {
     }
     HapticMock.instance = function () {
-        var instance = jasmine.createSpyObj('Haptic', ['available',
+        var instance = create_spy_1.createSpyObj('Haptic', ['available',
             'gestureSelectionChanged',
             'gestureSelectionEnd',
             'gestureSelectionStart',

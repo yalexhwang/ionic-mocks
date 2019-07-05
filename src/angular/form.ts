@@ -1,24 +1,18 @@
-import deprecated from 'deprecated-decorator';
-import { BaseMock } from '../base.mock';
+import { createSpyObj } from '../utilities/create-spy';
 
-const METHODS = [
+export class FormMock {
+    public static instance(): any {
+        let instance = createSpyObj('Form', [
             'register',
             'nextId',
             'deregister',
             'setAsFocused',
             'unsetAsFocused',
             'tabFocus'
-        ];
+        ]);
 
-export class FormMock extends BaseMock​​ {
+        instance.nextId.and.returnValue(0);
 
-    constructor() {
-        super('Form', METHODS);
-        this.spyObj.nextId.and.returnValue(0);
-    }
-
-    @deprecated('new FormMock()')
-    public static instance(): any {
-        return new FormMock();
+        return instance;
     }
 }

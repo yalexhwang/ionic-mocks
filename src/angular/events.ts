@@ -1,15 +1,7 @@
-import { BaseMock } from './../base.mock';
-import { deprecated } from 'deprecated-decorator';
+import { createSpyObj } from '../utilities/create-spy';
 
-const METHODS = ['subscribe', 'publish', 'unsubscribe'];
-
-export class EventsMock extends BaseMock {
-    constructor() {
-        super('Events', METHODS);
-    }
-
-    @deprecated('new EventsMock()')
+export class EventsMock {
     public static instance(): any {
-        return new EventsMock();
+        return createSpyObj('events', ['subscribe', 'publish', 'unsubscribe']);
     }
 }

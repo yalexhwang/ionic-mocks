@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var create_spy_1 = require("../utilities/create-spy");
 var IonKeyboardMock = /** @class */ (function () {
     function IonKeyboardMock() {
     }
     IonKeyboardMock.instance = function () {
-        var instance = jasmine.createSpyObj('Keyboard', [
+        var instance = create_spy_1.createSpyObj('Keyboard', [
             'close',
             'didHide',
             'didShow',
