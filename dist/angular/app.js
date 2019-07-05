@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ArrayObservable_1 = require("rxjs/observable/ArrayObservable");
+var of_1 = require("rxjs/observable/of");
 var create_spy_1 = require("../utilities/create-spy");
 var nav_controller_1 = require("./nav-controller");
 var AppMock = /** @class */ (function () {
@@ -30,12 +30,12 @@ var AppMock = /** @class */ (function () {
         instance.getRootNavs.and.returnValue(navCtrl || [nav_controller_1.NavControllerMock.instance()]);
         instance.getRootNavById.and.returnValue(navCtrl || nav_controller_1.NavControllerMock.instance());
         instance.isScrolling.and.returnValue(false);
-        instance.viewDidEnter.and.returnValue(viewObservable || ArrayObservable_1.ArrayObservable.of(undefined));
-        instance.viewDidLoad.and.returnValue(viewObservable || ArrayObservable_1.ArrayObservable.of(undefined));
-        instance.viewDidLeave.and.returnValue(viewObservable || ArrayObservable_1.ArrayObservable.of(undefined));
-        instance.viewWillEnter.and.returnValue(viewObservable || ArrayObservable_1.ArrayObservable.of(undefined));
-        instance.viewWillLeave.and.returnValue(viewObservable || ArrayObservable_1.ArrayObservable.of(undefined));
-        instance.viewWillUnload.and.returnValue(viewObservable || ArrayObservable_1.ArrayObservable.of(undefined));
+        instance.viewDidEnter.and.returnValue(viewObservable || of_1.of(undefined));
+        instance.viewDidLoad.and.returnValue(viewObservable || of_1.of(undefined));
+        instance.viewDidLeave.and.returnValue(viewObservable || of_1.of(undefined));
+        instance.viewWillEnter.and.returnValue(viewObservable || of_1.of(undefined));
+        instance.viewWillLeave.and.returnValue(viewObservable || of_1.of(undefined));
+        instance.viewWillUnload.and.returnValue(viewObservable || of_1.of(undefined));
         return instance;
     };
     return AppMock;
